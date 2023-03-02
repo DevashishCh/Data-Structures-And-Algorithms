@@ -1,15 +1,20 @@
 class Solution {
     public int reverse(int x) {
-       long rev=0,rem;
-        while(x != 0){
-            rem=x%10;
-            x = x/10;
-            rev= rev * 10 + rem;
+      long finalNum = 0;
+        while(x!=0){
+            int lastDig = x%10;
+            finalNum += lastDig;
+            finalNum = finalNum*10;
+            x= x/10;
         }
-        if(rev <= -Math.pow(2,31) || rev >= Math.pow(2,31)-1){
-            rev =0;
+        finalNum = finalNum/10;
+        if(finalNum > Integer.MAX_VALUE || finalNum<Integer.MIN_VALUE){
+            return 0;
         }
-        return  (int)rev;
+        if(x<0){
+            return (int)(-1*finalNum);
+        }
+        return (int)finalNum;
     }
 }
 
