@@ -13,17 +13,14 @@ class Solution {
            if(head==null) {
             return head;
         }
-        // if(n==1 && head.next==null) {
-        //     return null;
-        // }
+      
         int count=0;
         ListNode temp=head;
         while(temp!=null) {
             count++;
             temp=temp.next;
         }
-        // System.out.print(count);
-        // System.out.print(n);
+
         if(n>count) {
             return null;
         }
@@ -33,12 +30,12 @@ class Solution {
         }
         count=1;
         temp=head;
-        // System.out.print(temp.val);
+ 
         while(count<a) {
             temp=temp.next;
             count++;
         }
-         // System.out.print(temp.val);
+
         temp.next=temp.next.next;
         return head;
     }
